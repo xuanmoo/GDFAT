@@ -10,8 +10,11 @@ GDfilesystem 4 FAT32
 的基础上进行二次开发.
 
 updata 2019-6-9
+</br>
 1.增加dpload，只支持第一个分区的加载
+</br>
 2.增加folder，暂未支持长目录项
+</br>
 3.其他
 
 
