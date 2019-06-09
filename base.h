@@ -14,9 +14,10 @@ History:
 #ifndef	_BASE_H_
 #define	_BASE_H_
 
+//#include "Spi_Tf.h"
 short uc_short(unsigned char lb, unsigned char hb);
 long uc_long(unsigned char ll, unsigned char lh, unsigned char hl, unsigned char hh);
-void ReadSector(long sector, unsigned char * buff);
+//void ReadSector(long sector, unsigned char * buff);
 void fillbuffer(long sector);
 
 #endif
