@@ -14,6 +14,8 @@ History:
 #include "base.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "win32.h"
+
 
 /*************************************************
 Function: uc_short
@@ -63,7 +65,8 @@ long uc_long(unsigned char ll, unsigned char lh, unsigned char hl, unsigned char
 	return ret;
 }
 
-
+/*some tf nend send offset*block to get sector data*/
+long blocksize = 1;
 /*************************************************
 Function: fillbuffer
 Description: 从tf卡中获取一个扇区的内容到buff_sec中 
@@ -78,28 +81,26 @@ Others:
 unsigned char	buffer_sec[512];
 void fillbuffer(long sector)
 {
-	 ReadSector(sector,  buffer_sec);
+	sector *= blocksize;
+	ReadSector(sector,  buffer_sec);
 }
 
 /*************************************************
-Function: ReadSector 
-Description: 读一个扇区到相应的buff 
+Function: fillbuffer
+Description: 从tf卡中获取一个扇区的内容到buff_sec中 
 Calls: 
 Called By: 
 
-Input: long sector, unsigned char * buff 扇区号和buff 
+Input: long sector 扇区号 
 Output: 
 Return: 
 Others: 
 *************************************************/
-#ifdef	WIN32
-void ReadSector(long sector, unsigned char * buff)//pc test need
+unsigned char	buffer_fat[512];
+void fillfatbuffer(long sector)
 {
-	int	offset	=	sector	* 512;
-	FILE *fp	=	fopen("SD","rb");
-	
-	fseek(fp,offset,SEEK_SET);
-	fread((void *)buff, 1, 512, fp);
-	fclose(fp);
+	sector *= blocksize;
+	ReadSector(sector,  buffer_fat);
 }
-#endif
+
+
