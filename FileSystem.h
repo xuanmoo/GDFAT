@@ -4,7 +4,7 @@ File name: FileSystem.h
 Author:	www.xuanmoo.com
 Version:	0.0.1.0
 Date: 2019.5.20
-Description: GDFAT ÊµÏÖ²ã Êı¾İ½á¹¹¼°º¯Êı¶¨Òå
+Description: GDFAT å®ç°å±‚ æ•°æ®ç»“æ„åŠå‡½æ•°å®šä¹‰
 Others: 
 Function List: 
 
@@ -18,26 +18,26 @@ History:
 #include "FileSystem.h"
 
 struct DPInfo{
-	unsigned long	logicsector;		//Âß¼­0ÉÈÇø¶ÔÓ¦ÎïÀíÉÈÇø,¼´DBRÉÈÇø
-	unsigned long	totalsector;		//·ÖÇø×ÜÉÈÇøÊı
-	unsigned long	usedcluster;		//ÒÑÓÃ´Ø
-	unsigned long	freecluster;		//Ê£Óà´Ø
-	unsigned long	sectorsize;			//ÉÈÇø´óĞ¡
-	unsigned long	clustersize;		//´Ø´óĞ¡
-	unsigned long	SectorPerCluster;		//Ã¿´ØÕ¼ÉÈÇøÊı
-	unsigned long	fatsector;			//FATÉÈÇø
-	unsigned long	rootsector;			//¸ùÄ¿Â¼ÉÈÇø
-	unsigned char	DPname[12];			//¾í±ê
+	unsigned long	logicsector;		//é€»è¾‘0æ‰‡åŒºå¯¹åº”ç‰©ç†æ‰‡åŒº,å³DBRæ‰‡åŒº
+	unsigned long	totalsector;		//åˆ†åŒºæ€»æ‰‡åŒºæ•°
+	unsigned long	usedcluster;		//å·²ç”¨ç°‡
+	unsigned long	freecluster;		//å‰©ä½™ç°‡
+	unsigned long	sectorsize;			//æ‰‡åŒºå¤§å°
+	unsigned long	clustersize;		//ç°‡å¤§å°
+	unsigned long	SectorPerCluster;		//æ¯ç°‡å æ‰‡åŒºæ•°
+	unsigned long	fatsector;			//FATæ‰‡åŒº
+	unsigned long	rootsector;			//æ ¹ç›®å½•æ‰‡åŒº
+	unsigned char	DPname[12];			//å·æ ‡
 	
-	unsigned long	fsinfoSector;			//FSInfoÉÈÇøºÅ
-	unsigned long	dbr2Sector;				//DBR±¸·İÉÈÇøºÅ
-	unsigned long	nextfreecluster;		//ÏÂÒ»¸ö¿ÉÓÃµÄ´ØºÅ¡£
+	unsigned long	fsinfoSector;			//FSInfoæ‰‡åŒºå·
+	unsigned long	dbr2Sector;				//DBRå¤‡ä»½æ‰‡åŒºå·
+	unsigned long	nextfreecluster;		//ä¸‹ä¸€ä¸ªå¯ç”¨çš„ç°‡å·ã€‚
 };
 
 
 
 //FUN
-short LoadDiskDart(struct DPInfo *dpi);
+short LoadDiskPart(struct DPInfo *dpi);
 short FindDpName(struct DPInfo *dpi);
 unsigned long getClusterSector(struct DPInfo dpi,unsigned long Cluster);
 //short ListRoot(struct DPInfo dpi, struct DirItem *dir);
