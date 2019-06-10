@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 	struct DPInfo dpi;
 	struct DirItem dir;
 	struct DirLink folder;
-	if(LoadDiskDart(&dpi) != 0)printf("load dp error.\n");
+	if(LoadDiskPart(&dpi) != 0)printf("load dp error.\n");
 	
 	printf("----------------DP Info--------\n");
 	printf("logicsector:\t%ld\n",	dpi.logicsector);
