@@ -4,7 +4,7 @@ File name: FileSystem.c
 Author:	www.xuanmoo.com
 Version:	0.0.1.0
 Date: 2019.5.20
-Description: GDFAT ÊµÏÖÎÄ¼şÏµÍ³ 
+Description: GDFAT å®ç°æ–‡ä»¶ç³»ç»Ÿ 
 Others: 
 Function List: 
 
@@ -18,18 +18,18 @@ History:
 #include "FileSystem.h"
 
 /*************************************************
-Function: LoadDiskDart
-Description: »ñÈ¡·ÖÇøĞÅÏ¢ 
+Function: LoadDiskPart
+Description: è·å–åˆ†åŒºä¿¡æ¯ 
 Calls: 
 Called By: 
 
 Input: struct DPInfo *dpi  
 
 Output: 
-Return: ³É¹¦·µ»Ø0;·ñÔò·µ»Ø-1;
+Return: æˆåŠŸè¿”å›0;å¦åˆ™è¿”å›-1;
 Others: 
 *************************************************/
-short LoadDiskDart(struct DPInfo *dpi)
+short LoadDiskPart(struct DPInfo *dpi)
 {
 	struct MBR MBRinfo;
  	struct DBR DBRinfo;
@@ -58,7 +58,7 @@ short LoadDiskDart(struct DPInfo *dpi)
 
 unsigned long getClusterSector(struct DPInfo dpi,unsigned long Cluster)
 {
-	//´Ø ÆğÊ¼ÉÈÇø¼ÆËã
+	//ç°‡ èµ·å§‹æ‰‡åŒºè®¡ç®—
 	//	= RootEntrance + (N - 2) * SectorPerCluster
 	return (dpi.rootsector + (Cluster -2)*dpi.SectorPerCluster);
 }
